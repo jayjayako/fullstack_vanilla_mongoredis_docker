@@ -1,0 +1,1 @@
+# fullstack_vanilla_mongoredis_docker
