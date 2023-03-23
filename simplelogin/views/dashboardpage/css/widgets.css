@@ -1,0 +1,49 @@
+fieldset {
+  border-radius: 10px;
+  font-size: 20px;
+  border: 2px solid black;
+}
+
+.margin1 {
+  padding: 12px 20px;
+}
+
+/* //////// all textbox design //////// */
+input[type="text"] {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: rgb(211, 211, 211);
+  padding: 4px 8px;
+}
+input[type="password"] {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: rgb(211, 211, 211);
+  padding: 4px 8px;
+}
+/* /////////////////////////////////// */
+
+/* /////////// button design ///////// */
+.button1 {
+  background-color: rgb(141, 36, 36);
+  color: white;
+  width: 100%;
+  padding: 3px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+}
+.button1:hover {
+  background-color: rgb(192, 54, 54);
+  color: white;
+}
+.buttonlink {
+  background-color: transparent;
+  text-decoration: underline;
+  border: none;
+  outline: none;
+}
+/* /////////////////////////////////// */

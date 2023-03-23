@@ -1,0 +1,39 @@
+<div class="flexbox flexdirec-col defaultpagenone">
+  <h2 class="fullwidth" style="text-align: center">Register Page</h2>
+  <br />
+  <form onsubmit="return false">
+    <fieldset>
+      <div class="margin1">
+        <label for="reglastname">Lastname:</label>
+        <input type="text" id="reglastname" />
+      </div>
+      <br />
+      <div class="margin1">
+        <label for="regfirstname">Firstname:</label>
+        <input type="text" id="regfirstname" />
+      </div>
+      <br />
+      <div class="margin1">
+        <label for="regusername">Username:</label>
+        <input type="text" id="regusername" />
+      </div>
+      <br />
+      <div class="margin1">
+        <label for="regpassword">Password:</label>
+        <input type="password" id="regpassword" />
+      </div>
+      <br />
+      <div class="margin1">
+        <button onclick="register()" class="button1">Register</button>
+      </div>
+    </fieldset>
+  </form>
+  <br />
+  <div class="fullwidth" style="text-align: center">
+    <button
+      class="buttonlink"
+      onclick="includehtml('login', 'app/pages/login')">
+      Login
+    </button>
+  </div>
+</div>

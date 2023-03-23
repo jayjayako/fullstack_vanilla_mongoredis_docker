@@ -1,0 +1,35 @@
+<div class="flexbox flexdirec-col">
+  <h2 class="fullwidth" style="text-align: center">Login Page</h2>
+  <br />
+  <form onsubmit="return false">
+    <fieldset>
+      <div class="margin1">
+        <label for="username">Username:</label>
+        <input type="text" id="username" oninput="readlogin()" />
+      </div>
+      <br />
+      <div class="margin1">
+        <label for="password">Password:</label>
+        <input type="password" id="password" oninput="readlogin()" />
+      </div>
+      <br />
+      <div class="margin1">
+        <button onclick="login()" class="button1">Login</button>
+      </div>
+    </fieldset>
+  </form>
+  <br />
+  <div class="fullwidth" style="text-align: center">
+    <button
+      class="buttonlink"
+      onclick="includehtml('login', 'app/pages/register')">
+      Register
+    </button>
+  </div>
+</div>
+<script>
+  document.getElementById("username").value =
+    document.getElementById("usernamevar").value;
+  document.getElementById("password").value =
+    document.getElementById("passwordvar").value;
+</script>

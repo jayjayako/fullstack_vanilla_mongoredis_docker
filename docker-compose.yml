@@ -1,0 +1,100 @@
+version: "3.9"
+services:
+  redis:
+    container_name: redis
+    image: redis:7.0.9-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - node1redisconn
+      - node2redisconn
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
+  mongo:
+    container_name: mongo
+    image: mongo:4.2
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=root
+    #   - MONGO_INITDB_ROOT_PASSWORD=secret
+    restart: unless-stopped
+    volumes:
+      - ./data/db:/data/db
+    networks:
+      - node1dbconn
+      - node2dbconn
+    ports:
+      - 3306:27017
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
+  nginx:
+    restart: unless-stopped
+    build:
+      context: ./nginxbalancer
+    container_name: nginx
+    tty: true
+    ports:
+      - "5003:3003"
+    networks:
+      - node1conn
+      - node2conn
+    depends_on:
+      - node1
+      - node2
+  node1:
+    build:
+      context: ./simplelogin
+    volumes:
+      - "./uploads:/app/uploads"
+    restart: unless-stopped
+    container_name: node1con
+    ports:
+      - "5000:3000"
+    tty: true
+    networks:
+      - node1conn
+      - node1dbconn
+      - node1redisconn
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+  node2:
+    build:
+      context: ./simplelogin2
+    volumes:
+      - "./uploads:/app/uploads"
+    restart: unless-stopped
+    container_name: node2con
+    ports:
+      - "5001:3001"
+    tty: true
+    networks:
+      - node2conn
+      - node2dbconn
+      - node2redisconn
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+networks:
+  node1conn:
+    driver: bridge
+  node2conn:
+    driver: bridge
+  node1dbconn:
+    driver: bridge
+  node2dbconn:
+    driver: bridge
+  node1redisconn:
+    driver: bridge
+  node2redisconn:
+    driver: bridge

@@ -1,0 +1,60 @@
+<div class="fullwidth fullheight">
+  <div class="flexbox">
+    <h2 class="fullwidth textaligncenter">Dashboard</h2>
+    <h2 class="textalignleft fullwidth" id="titleid">
+      Welcome ${myresult[0].name}
+    </h2>
+    <div class="dashboard-content1">
+      <button onclick="logout()" class="button1">Logout</button>
+    </div>
+  </div>
+  <div class="flexbox">
+    <div class="dashboard-content2">
+      <button onclick="sendrealtime()" class="button1">Send Socket</button>
+    </div>
+    <div class="dashboard-content2">
+      <input type="file" id="file1" />
+    </div>
+    <div class="dashboard-content2">
+      <button onclick="uploadfile()" class="button1">Upload the file</button>
+    </div>
+  </div>
+  <div class="flexbox">
+    <div
+      class="dashboard-content3"
+      style="padding-top: 10px; padding-bottom: 10px">
+      <select id="dropdownid">
+        <option value="nosched">No Sched</option>
+        <option value="withsched">With Sched</option>
+      </select>
+    </div>
+  </div>
+  <div class="flexbox">
+    <div class="dashboard-content3">
+      <input type="text" placeholder="id number" id="useridnum" />
+    </div>
+  </div>
+  <div class="flexbox">
+    <div
+      class="dashboard-content3"
+      style="padding-top: 10px; padding-bottom: 10px">
+      <input
+        type="text"
+        placeholder="message"
+        style="height: 60px"
+        id="usermsgid" />
+    </div>
+  </div>
+  <div class="flexbox">
+    <div class="dashboard-content3">
+      <button onclick="sendmessage()" class="button1">Send to Someone</button>
+    </div>
+  </div>
+  <div class="flexbox">
+    <div
+      class="dashboard-content3"
+      style="padding-top: 10px; padding-bottom: 10px">
+      <button onclick="registername()" class="button1">Notif Subscribe</button>
+    </div>
+  </div>
+</div>
